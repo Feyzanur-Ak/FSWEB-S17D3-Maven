@@ -28,12 +28,12 @@ public class KangarooController {
     }
 
     @GetMapping()
-    public List<Kangaroo> getAll(){
+    public List<Kangaroo> FindAllKangaroos(){
         return this.kangaroos.values().stream().toList();
     }
 
     @GetMapping("/{id}")
-    public Kangaroo getKangarooById(@PathVariable Integer id) {
+    public Kangaroo FindAllKangarooById(@PathVariable Integer id) {
         if (!kangaroos.containsKey(id)) {
             throw new ZooException("Kangaroo with ID " + id + " not found", HttpStatus.NOT_FOUND);
         }
@@ -41,13 +41,13 @@ public class KangarooController {
     }
 
     @PostMapping
-    public Kangaroo addKangaroo(@RequestBody Kangaroo kangaroo) {
-        //kangaroos.put(kangaroo.getId(), kangaroo);
+    public Kangaroo SaveKangaroo(@RequestBody Kangaroo kangaroo) {
+        kangaroos.put(kangaroo.getId(), kangaroo);
         return kangaroo;
     }
 
     @PutMapping("/{id}")
-    public Kangaroo updateKangaroo(@PathVariable Integer id, @RequestBody Kangaroo updatedKangaroo) {
+    public Kangaroo UpdateKangaroo(@PathVariable Integer id, @RequestBody Kangaroo updatedKangaroo) {
         if (!kangaroos.containsKey(id)) {
             throw new ZooException("Kangaroo with ID " + id + " not found", HttpStatus.NOT_FOUND);
         }
@@ -56,7 +56,7 @@ public class KangarooController {
     }
 
     @DeleteMapping("/{id}")
-    public String deleteKangaroo(@PathVariable Integer id) {
+    public String DeleteKangaroo(@PathVariable Integer id) {
         if (!kangaroos.containsKey(id)) {
             throw new ZooException("Kangaroo with ID " + id + " not found", HttpStatus.NOT_FOUND);
         }

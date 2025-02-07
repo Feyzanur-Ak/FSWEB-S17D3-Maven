@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/kangaroos")
+@RequestMapping("/koalas")
 public class KoalaController {
 
     public Map<Integer, Koala> koalas;
