@@ -1,9 +1,16 @@
 package com.workintech.zoo.exceptions;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Component;
 
 
+@Component
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class ZooErrorResponse {
 
     private int status;
@@ -12,33 +19,5 @@ public class ZooErrorResponse {
 
     private long timestamp;
 
-    public ZooErrorResponse(int status, String message, long timestamp) {
-        this.status = status;
-        this.message = message;
-        this.timestamp = timestamp;
-    }
 
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public long getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(long timestamp) {
-        this.timestamp = timestamp;
-    }
 }

@@ -41,7 +41,7 @@ public class KoalaController {
 
      @PostMapping
      public Koala addKoala(@RequestBody Koala koala){
-        koalas.put(koala.getId(), koala);
+        //koalas.put(koala.getId(), koala);
         return koala;
      }
 

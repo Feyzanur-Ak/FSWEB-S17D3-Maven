@@ -15,7 +15,7 @@ import java.util.Map;
 @RequestMapping("/kangaroos")
 public class KangarooController {
 
-    Map<Integer, Kangaroo> kangaroos;
+    public  Map<Integer, Kangaroo> kangaroos;
 
     @Autowired
     public KangarooController(Map<Integer, Kangaroo> kangaroos) {
@@ -42,7 +42,7 @@ public class KangarooController {
 
     @PostMapping
     public Kangaroo addKangaroo(@RequestBody Kangaroo kangaroo) {
-        kangaroos.put(kangaroo.getId(), kangaroo);
+        //kangaroos.put(kangaroo.getId(), kangaroo);
         return kangaroo;
     }
 

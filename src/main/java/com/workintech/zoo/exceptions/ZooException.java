@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 
 public class ZooException extends  RuntimeException {
 
-    private final HttpStatus status;
+    private  HttpStatus status;
 
     public ZooException(String message, HttpStatus status) {
         super(message);
@@ -15,4 +15,9 @@ public class ZooException extends  RuntimeException {
     public HttpStatus getHttpStatus() {
         return status;
     }
+
+    public void setHttpStatus(HttpStatus status){
+        this.status=status;
+    }
+
 }
