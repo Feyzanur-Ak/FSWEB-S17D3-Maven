@@ -25,13 +25,13 @@ public class KoalaController {
 
 
      @GetMapping()
-    public List<Koala> getAll(){
-        return  this.koalas.values().stream().toList();
+    public List<Koala> FindAllKoalas(){
+        return  koalas.values().stream().toList();
      }
 
 
      @GetMapping("/{id}")
-    public Koala getKoalaById(@PathVariable Integer id) {
+    public Koala FindKoalaById(@PathVariable Integer id) {
         if(!koalas.containsKey(id)){
             throw new ZooException("Koala with ID " + id + "not found", HttpStatus.NOT_FOUND);
         }
@@ -40,13 +40,13 @@ public class KoalaController {
 
 
      @PostMapping
-     public Koala addKoala(@RequestBody Koala koala){
-        //koalas.put(koala.getId(), koala);
+     public Koala SaveKoala(@RequestBody Koala koala){
+        koalas.put(koala.getId(), koala);
         return koala;
      }
 
     @PutMapping("/{id}")
-    public Koala updateKoala(@PathVariable Integer id, @RequestBody Koala updatedKoala) {
+    public Koala UpdateKoala(@PathVariable Integer id, @RequestBody Koala updatedKoala) {
         if (!koalas.containsKey(id)) {
             throw new ZooException("Koala with ID " + id + " not found", HttpStatus.NOT_FOUND);
         }
@@ -55,7 +55,7 @@ public class KoalaController {
     }
 
     @DeleteMapping("/{id}")
-    public String deleteKoala(@PathVariable Integer id) {
+    public String DeleteKoala(@PathVariable Integer id) {
         if (!koalas.containsKey(id)) {
             throw new ZooException("Koala with ID " + id + " not found", HttpStatus.NOT_FOUND);
         }
